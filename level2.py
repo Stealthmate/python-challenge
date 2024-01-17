@@ -1,3 +1,4 @@
+# http://www.pythonchallenge.com/pc/def/ocr.html
 from collections import Counter
 
 text = ""
