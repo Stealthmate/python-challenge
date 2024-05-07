@@ -9,6 +9,8 @@ packages = [{include = "python_challenge"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 requests = "^2.31.0"
+pillow = "^10.2.0"
+numpy = "^1.26.4"
 
 
 [build-system]
