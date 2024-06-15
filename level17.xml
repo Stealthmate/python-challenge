@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<methodCall>
+  <methodName>phone</methodName>
+  <params>
+    <param>
+        <value><string>Leopold</string></value>
+    </param>
+  </params>
+</methodCall>
