@@ -13,11 +13,12 @@
 
 # OK, I actually saw this by myself and was a bit confused, but apparently it's relevant.
 
-import requests
 import zipfile
 
+import requests
+
 sess = requests.Session()
-sess.auth = ('butter', 'fly')
+sess.auth = ("butter", "fly")
 
 # URL = "http://www.pythonchallenge.com/pc/hex/unreal.jpg"
 
@@ -42,7 +43,7 @@ sess.auth = ('butter', 'fly')
 # man, you can never trust anything about this server...
 
 URL = "http://www.pythonchallenge.com/pc/hex/unreal.jpg"
-res = sess.get(URL, headers={ 'Range': 'bytes=2123456789-'})
+res = sess.get(URL, headers={"Range": "bytes=2123456789-"})
 print(res.headers)
 print(res.content)
 
@@ -53,23 +54,23 @@ print(res.content)
 
 # hint: now reverse the search
 # dafuq...
-res = sess.get(URL, headers={ 'Range': 'bytes=2123456743-'})
+res = sess.get(URL, headers={"Range": "bytes=2123456743-"})
 print(res.headers)
 print(res.content)
 
 # "and it is hiding at 1152983631."
 
-res = sess.get(URL, headers={ 'Range': 'bytes=1152983631-'})
+res = sess.get(URL, headers={"Range": "bytes=1152983631-"})
 print(res.headers)
-with open('level20/hiding.zip', mode='wb') as f:
+with open("level20/hiding.zip", mode="wb") as f:
     f.write(res.content)
 
-# ok, so apparently this is a ZIP file 
+# ok, so apparently this is a ZIP file
 # https://www.reddit.com/r/learnprogramming/comments/bbq5lt/any_ideas_how_to_decode_this_archaic_filetype_off/
 
-with zipfile.ZipFile('level20/hiding.zip') as f:
-    f.setpassword(b'redavni')
-    with f.open('readme.txt') as ff:
+with zipfile.ZipFile("level20/hiding.zip") as f:
+    f.setpassword(b"redavni")
+    with f.open("readme.txt") as ff:
         print(ff.read())
 
 # apparently this is level 21?

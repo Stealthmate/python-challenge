@@ -2,10 +2,11 @@
 # used hint: apparently the image was from level 4...
 # how am I supposed to remember that...
 
+import bz2
+import urllib.parse
+
 import requests
 import urllib3
-import urllib.parse
-import bz2
 
 sess = requests.Session()
 # nothing = '12345'
@@ -36,7 +37,7 @@ sess = requests.Session()
 # http://www.pythonchallenge.com/pc/stuff/violin.php
 
 sess.cookies.set("info", "the flowers are on their way")
-res = sess.get(f'http://www.pythonchallenge.com/pc/stuff/violin.php')
+res = sess.get(f"http://www.pythonchallenge.com/pc/stuff/violin.php")
 print(res.text)
 
 # http://www.pythonchallenge.com/pc/return/balloons.html

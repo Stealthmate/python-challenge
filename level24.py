@@ -3,12 +3,12 @@
 
 # ok, maybe just try to solve the maze?
 
-from collections import deque
 import typing
 import zipfile
+from collections import deque
 
-from PIL import Image, ImageDraw
 import numpy as np
+from PIL import Image, ImageDraw
 
 MARK_UNSEEN = 0
 MARK_PATH = 1
@@ -16,8 +16,9 @@ MARK_WALL = 2
 MARK_DEAD_END = 3
 MARK_IN_PROGRESS = 4
 
-im = Image.open('level24/maze.png').convert('RGB')
+im = Image.open("level24/maze.png").convert("RGB")
 data = np.array(im.getdata()).reshape(641, 641, 3)
+
 
 def neighbours_of(p: tuple[int, int]) -> typing.Iterator[tuple[int, int]]:
     if p[0] > 0:
@@ -29,8 +30,10 @@ def neighbours_of(p: tuple[int, int]) -> typing.Iterator[tuple[int, int]]:
     if p[1] < 640:
         yield (p[0], p[1] + 1)
 
+
 def is_wall(p: tuple[int, int]) -> bool:
     return np.all(data[p[0], p[1]] == 255)
+
 
 solved_map = np.ones((641, 641, 1)) * MARK_UNSEEN
 parents = {}
@@ -65,7 +68,7 @@ result = Image.new("RGB", (641, 641))
 draw = ImageDraw.Draw(result)
 for i in range(641):
     for j in range(641):
-        color = ['black', 'green', 'red', 'yellow', 'blue']
+        color = ["black", "green", "red", "yellow", "blue"]
         draw.point([j, i], fill=color[int(solved_map[i, j, 0])])
 
 # depending on where you start from, half the map is unreachable.
@@ -81,13 +84,13 @@ p = END
 while p != START:
     collected_data.append(int(data[p[0], p[1], 0]))
     p = parents[p]
-    draw.point(p[::-1], 'blue')
+    draw.point(p[::-1], "blue")
 # result.show()
 collected_data.append(int(data[p[0], p[1], 0]))
 collected_data = collected_data[::-1]
 collected_data = collected_data[1::2]
 
 print(collected_data[:10])
-open('level24/maze.zip','wb').write(bytes(collected_data))
+open("level24/maze.zip", "wb").write(bytes(collected_data))
 
 # https://www.pythonchallenge.com/pc/hex/lake.html

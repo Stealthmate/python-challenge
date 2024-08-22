@@ -1,10 +1,11 @@
 # http://www.pythonchallenge.com/pc/return/italy.html
 
-from PIL import Image
-import numpy as np
 import time
 
-im = Image.open('level14/wire.png')
+import numpy as np
+from PIL import Image
+
+im = Image.open("level14/wire.png")
 # im.show()
 
 data = np.array(im.getdata()).reshape(10000, 3)
@@ -32,7 +33,7 @@ while current_length > 0:
         current_length -= 1
         current_count = 0
 
-im2 = Image.fromarray(np.array(unspiral).reshape(100, 100, 3).astype('uint8'), 'RGB')
+im2 = Image.fromarray(np.array(unspiral).reshape(100, 100, 3).astype("uint8"), "RGB")
 im2.show()
 
 # http://www.pythonchallenge.com/pc/return/cat.html -> uzi

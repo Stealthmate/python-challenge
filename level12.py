@@ -4,9 +4,9 @@
 
 from PIL import Image
 
-with open('level12/evil2.gfx', mode='rb') as original:
+with open("level12/evil2.gfx", mode="rb") as original:
     files = [
-        open(fp, mode='wb')
+        open(fp, mode="wb")
         for fp in [
             "level12/img0.jfif",
             "level12/img1.png",

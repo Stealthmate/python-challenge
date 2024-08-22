@@ -1,7 +1,7 @@
 import requests
 from PIL import Image
 
-img = Image.open('level7/oxygen.png').convert("RGB")
+img = Image.open("level7/oxygen.png").convert("RGB")
 pixels = img.load()
 
 seq = []
@@ -15,10 +15,10 @@ last_num = None
 uniq_seq = []
 uniq_seq = seq[::7]
 
-uniq_seq = ''.join([ chr(uniq_seq[i]) for i in range(0, len(uniq_seq))])
+uniq_seq = "".join([chr(uniq_seq[i]) for i in range(0, len(uniq_seq))])
 print(len(uniq_seq))
 print(uniq_seq)
 
 arr = [105, 110, 116, 101, 103, 114, 105, 116, 121]
-target = ''.join(chr(c) for c in arr)
+target = "".join(chr(c) for c in arr)
 print(f"http://www.pythonchallenge.com/pc/def/{target}.html")

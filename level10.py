@@ -14,16 +14,16 @@ while len(a) < 31:
     last = str(a[-1])
     current_digit = last[0]
     current_count = 1
-    next_number = ''
+    next_number = ""
     for d in last[1:]:
         if d == current_digit:
             current_count += 1
         else:
-            next_number = f'{next_number}{current_count}{current_digit}'
+            next_number = f"{next_number}{current_count}{current_digit}"
             # print(current_count, current_digit)
             current_digit = d
             current_count = 1
-    next_number = f'{next_number}{current_count}{current_digit}'
+    next_number = f"{next_number}{current_count}{current_digit}"
     a.append(next_number)
 
 print(a[30], len(a[30]))

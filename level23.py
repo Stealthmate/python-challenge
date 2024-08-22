@@ -9,7 +9,8 @@
 # Apparently the string is rot13 encoded.
 
 import codecs
-print(codecs.decode('va gur snpr bs jung', 'rot_13'))
+
+print(codecs.decode("va gur snpr bs jung", "rot_13"))
 
 # in the face of what? -> ambiguity (see https://qiita.com/pyjackal/items/cfdb55051b1d3307eca1 again)
 # yay!

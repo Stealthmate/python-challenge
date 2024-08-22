@@ -12,7 +12,7 @@ result = Image.new("RGB", (500, 500))
 cx, cy = 200, 200
 draw = ImageDraw.Draw(result)
 
-with Image.open('level22/white.gif') as im:
+with Image.open("level22/white.gif") as im:
     for i in range(im.n_frames):
         im.seek(i)
         im2 = im.convert("RGB")

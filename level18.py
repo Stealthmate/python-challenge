@@ -18,7 +18,7 @@ import difflib
 lines1 = []
 lines2 = []
 
-with open('level18/deltas') as f:
+with open("level18/deltas") as f:
     for line in f:
         lines1.append(line[:53].strip())
         lines2.append(line[56:].strip())
@@ -31,9 +31,9 @@ f2 = open("level18/f2.png", "wb")
 
 for line in compare:
     bs = bytes([int(o, 16) for o in line[2:].strip().split(" ") if o])
-    if line[0] == '+':
+    if line[0] == "+":
         f1.write(bs)
-    elif line[0] == '-':
+    elif line[0] == "-":
         f2.write(bs)
     else:
         f.write(bs)

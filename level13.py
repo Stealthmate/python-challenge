@@ -1,10 +1,10 @@
 # http://www.pythonchallenge.com/pc/return/disproportional.html
 
-from PIL import Image
 import numpy as np
+from PIL import Image
 
-im = Image.open('level13/disprop.jpg')
-im = im.crop((326 - 45//2, 177 - 45 // 2, 326 + 45//2, 177 + 45 // 2))
+im = Image.open("level13/disprop.jpg")
+im = im.crop((326 - 45 // 2, 177 - 45 // 2, 326 + 45 // 2, 177 + 45 // 2))
 im.show()
 
 # phonebook is an xmlrpc endpoint
